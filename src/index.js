@@ -1,15 +1,20 @@
 import fs from 'fs'
 import _ from 'lodash'
 
-function templateReader(templateFile, replacements) {
+function asString(templateFile, replacements) {
   let template = fs.readFileSync(
     templateFile
   ).toString()
 
   let compiled = _.template(template)
-  let scriptAsString = compiled(replacements)
-  return eval(scriptAsString)
+  return compiled(replacements)
 }
 
-export default templateReader
+let asFunction = (templateFile, replacements) => {
+  return eval(scriptAsString(templateFile, replacements))
+}
 
+export default {
+    asFunction,
+    asString
+}

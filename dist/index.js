@@ -14,12 +14,18 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function templateReader(templateFile, replacements) {
+function asString(templateFile, replacements) {
   var template = _fs2.default.readFileSync(templateFile).toString();
 
   var compiled = _lodash2.default.template(template);
-  var scriptAsString = compiled(replacements);
-  return eval(scriptAsString);
+  return compiled(replacements);
 }
 
-exports.default = templateReader;
+var asFunction = function asFunction(templateFile, replacements) {
+  return eval(scriptAsString(templateFile, replacements));
+};
+
+exports.default = {
+  asFunction: asFunction,
+  asString: asString
+};
