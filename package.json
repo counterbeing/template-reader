@@ -1,0 +1,16 @@
+{
+  "name": "template-reader",
+  "version": "1.0.0",
+  "description": "Render JS files as templates, and then eval them.",
+  "main": "dist/index.js",
+  "repository": "git@github.com:counterbeing/template-reader.git",
+  "author": "Cory Logan <he@corylogan.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6",
+    "babel-preset-es2015": "6"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
